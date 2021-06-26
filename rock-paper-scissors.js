@@ -5,57 +5,16 @@ function computerPlay() {
   return gameOptions[randomSelection];
 }
 
-function userPlay() {
-  let userInput;
-
-  while (true) {
-    userInput = prompt(
-      `Please enter "${gameOptions[0]}", "${gameOptions[1]}", or "${gameOptions[2]}"`
-    );
-
-    if (userInput === null) {
-      break;
-    }
-
-    userInput =
-      userInput.charAt(0).toUpperCase() +
-      userInput.trim().slice(1).toLowerCase();
-
-    if (
-      userInput === gameOptions[0] ||
-      userInput === gameOptions[1] ||
-      userInput === gameOptions[2]
-    ) {
-      break;
-    }
-  }
-
-  return userInput;
-}
-
 function getRounds() {
-  let numRounds;
-
-  while (true) {
-    numRounds = prompt(
-      "How many rounds would you like to play? (Please enter an integer greater than 0)"
-    );
-
-    if (numRounds === null) {
-      break;
-    }
-
-    numRounds = Number(numRounds);
-
-    if (Number.isInteger(numRounds) && numRounds > 0) {
-      break;
-    }
-  }
-
-  return numRounds;
+  const inputRounds = document.querySelector("#inputRounds");
+  console.log("Rounds: " + inputRounds.value);
+  return inputRounds.value;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(event) {
+  const computerSelection = computerPlay();
+  const playerSelection = event.target.innerText;
+
   const indexDiff =
     gameOptions.indexOf(playerSelection) -
     gameOptions.indexOf(computerSelection);
@@ -110,4 +69,13 @@ function game() {
   return true;
 }
 
-game();
+const startGame = document.querySelector("#startGame");
+const playOptions = document.querySelectorAll(".playOptions > button");
+
+playOptions.forEach((button) => {
+  button.addEventListener("click", playRound);
+});
+
+startGame.addEventListener("click", getRounds);
+
+// game();
