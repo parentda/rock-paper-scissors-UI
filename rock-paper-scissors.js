@@ -1,4 +1,9 @@
 const gameOptions = ["Rock", "Paper", "Scissors"];
+let numRounds = 0;
+
+const startGameButton = document.querySelector("#startGame");
+const playOptions = document.querySelectorAll(".playOptions > button");
+const result = document.querySelector("#result");
 
 function computerPlay() {
   const randomSelection = Math.floor(Math.random() * 3);
@@ -7,8 +12,10 @@ function computerPlay() {
 
 function getRounds() {
   const inputRounds = document.querySelector("#inputRounds");
-  console.log("Rounds: " + inputRounds.value);
-  return inputRounds.value;
+  const trackRounds = document.querySelector("#trackRounds");
+  playOptions.forEach((button) => button.classList.toggle("hidden"));
+  numRounds = inputRounds.value;
+  trackRounds.textContent = numRounds;
 }
 
 function playRound(event) {
@@ -20,24 +27,24 @@ function playRound(event) {
     gameOptions.indexOf(computerSelection);
 
   if (indexDiff === 0) {
-    console.log(`It's a Tie!`);
+    result.textContent = `It's a Tie!`;
     return 1;
   }
   if (indexDiff === 1 || indexDiff === -2) {
-    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    result.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
     return 0;
   }
-  console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+  result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
   return 2;
 }
 
 function showFinalScore(score, rounds) {
   if (score[0] === score[2]) {
-    console.log(`After ${rounds} round(s), it's a tie!`);
+    result.textContent = `After ${rounds} round(s), it's a tie!`;
   } else if (score[0] > score[2]) {
-    console.log(`After ${rounds} round(s), you win ${score[0]}-${score[2]}!`);
+    result.textContent = `After ${rounds} round(s), you win ${score[0]}-${score[2]}!`;
   } else {
-    console.log(`After ${rounds} round(s), you lose ${score[2]}-${score[0]}!`);
+    result.textContent = `After ${rounds} round(s), you lose ${score[2]}-${score[0]}!`;
   }
 }
 
@@ -69,13 +76,10 @@ function game() {
   return true;
 }
 
-const startGame = document.querySelector("#startGame");
-const playOptions = document.querySelectorAll(".playOptions > button");
-
 playOptions.forEach((button) => {
   button.addEventListener("click", playRound);
 });
 
-startGame.addEventListener("click", getRounds);
+startGameButton.addEventListener("click", getRounds);
 
 // game();
