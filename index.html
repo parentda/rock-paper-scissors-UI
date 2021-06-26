@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div>ROCK PAPER SCISSORS</div>
     <div>
-      <label for="inputRounds">How many rounds would you like to play?</label>
+      <label for="inputRounds">How many points will it take to win?</label>
       <input
         id="inputRounds"
         type="number"
@@ -19,15 +20,16 @@
       <button id="startGame">Start Game</button>
     </div>
     <div class="playOptions">
-      <button class="hidden">Rock</button>
-      <button class="hidden">Paper</button>
-      <button class="hidden">Scissors</button>
+      <button id="rock" disabled>Rock</button>
+      <button id="paper" disabled>Paper</button>
+      <button id="scissors" disabled>Scissors</button>
     </div>
     <div id="keepTrack">
       <div id="trackRounds"></div>
       <div id="trackScore"></div>
     </div>
     <div id="result"></div>
+    <div id="finalScore"></div>
     <script src="rock-paper-scissors.js"></script>
   </body>
 </html>

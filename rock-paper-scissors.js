@@ -1,5 +1,9 @@
 const gameOptions = ["Rock", "Paper", "Scissors"];
-let numRounds = 0;
+let score;
+
+let initialRounds = 0;
+let roundCounter = 0;
+let gameInProgress = false;
 
 const startGameButton = document.querySelector("#startGame");
 const playOptions = document.querySelectorAll(".playOptions > button");
@@ -10,17 +14,22 @@ function computerPlay() {
   return gameOptions[randomSelection];
 }
 
-function getRounds() {
+function startGame(event) {
+  score = [0, 0, 0];
+  gameInProgress = true;
+  console.log(event);
   const inputRounds = document.querySelector("#inputRounds");
   const trackRounds = document.querySelector("#trackRounds");
-  playOptions.forEach((button) => button.classList.toggle("hidden"));
-  numRounds = inputRounds.value;
-  trackRounds.textContent = numRounds;
+  playOptions.forEach((button) => button.removeAttribute("disabled"));
+  initialRounds = inputRounds.value;
+  roundCounter = inputRounds.value;
+  trackRounds.textContent = roundCounter;
 }
 
 function playRound(event) {
   const computerSelection = computerPlay();
   const playerSelection = event.target.innerText;
+  console.log(event);
 
   const indexDiff =
     gameOptions.indexOf(playerSelection) -
@@ -38,13 +47,13 @@ function playRound(event) {
   return 2;
 }
 
-function showFinalScore(score, rounds) {
+function showFinalScore() {
   if (score[0] === score[2]) {
-    result.textContent = `After ${rounds} round(s), it's a tie!`;
+    result.textContent = `After ${initialRounds} round(s), it's a tie!`;
   } else if (score[0] > score[2]) {
-    result.textContent = `After ${rounds} round(s), you win ${score[0]}-${score[2]}!`;
+    result.textContent = `After ${initialRounds} round(s), you win ${score[0]}-${score[2]}!`;
   } else {
-    result.textContent = `After ${rounds} round(s), you lose ${score[2]}-${score[0]}!`;
+    result.textContent = `After ${initialRounds} round(s), you lose ${score[2]}-${score[0]}!`;
   }
 }
 
@@ -58,7 +67,6 @@ function game() {
   }
 
   // Player's Win:Draw:Loss record
-  const score = [0, 0, 0];
 
   for (let i = 0; i < rounds; i += 1) {
     const computerSelection = computerPlay();
@@ -80,6 +88,6 @@ playOptions.forEach((button) => {
   button.addEventListener("click", playRound);
 });
 
-startGameButton.addEventListener("click", getRounds);
+startGameButton.addEventListener("click", startGame);
 
 // game();
