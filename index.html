@@ -6,46 +6,53 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div>ROCK PAPER SCISSORS</div>
-    <div>
-      <label for="inputRounds">How many points will it take to win?</label>
-      <input
-        id="inputRounds"
-        type="number"
-        min="1"
-        step="1"
-        size="5"
-        required
-      />
-      <button id="startGame">Start Game</button>
-    </div>
-    <div class="playOptions">
-      <button id="rock" disabled>Rock</button>
-      <button id="paper" disabled>Paper</button>
-      <button id="scissors" disabled>Scissors</button>
-    </div>
-    <div id="keepTrack">
-      <div id="trackRounds">
-        <div>Rounds Played</div>
-        <div id="roundsCount">-</div>
+    <header>
+      <h1>ROCK PAPER SCISSORS</h1>
+    </header>
+    <main>
+      <div>
+        <label for="inputRounds">how many points will it take to win?</label>
+        <input
+          id="inputRounds"
+          type="number"
+          min="1"
+          step="1"
+          size="5"
+          required
+        />
+        <button id="startGame">start game</button>
       </div>
-      <div id="trackScore">
+      <div class="playOptions">
+        <p>choose your weapon</p>
         <div>
-          <div>Wins</div>
-          <div id="winsCount">-</div>
-        </div>
-        <div>
-          <div>Ties</div>
-          <div id="tiesCount">-</div>
-        </div>
-        <div>
-          <div>Losses</div>
-          <div id="lossesCount">-</div>
+          <button id="rock" disabled>rock</button>
+          <button id="paper" disabled>paper</button>
+          <button id="scissors" disabled>scissors</button>
         </div>
       </div>
-    </div>
-    <div id="result"></div>
-    <div id="finalScore"></div>
+      <div id="keepTrack">
+        <div id="trackRounds">
+          <div>rounds played</div>
+          <div id="roundsCount">-</div>
+        </div>
+        <div id="trackScore">
+          <div>
+            <div>wins</div>
+            <div id="winsCount">-</div>
+          </div>
+          <div>
+            <div>ties</div>
+            <div id="tiesCount">-</div>
+          </div>
+          <div>
+            <div>losses</div>
+            <div id="lossesCount">-</div>
+          </div>
+        </div>
+      </div>
+      <p id="result"></p>
+      <p id="finalScore"></p>
+    </main>
     <script src="rock-paper-scissors.js"></script>
   </body>
 </html>
