@@ -16,20 +16,21 @@ function computerPlay() {
   return gameOptions[randomSelection];
 }
 
-function startGame(event) {
+function startGame() {
   score = [0, 0, 0];
   roundCounter = 0;
   result.textContent = "";
   finalScore.textContent = "";
-  // console.log(event);
 
   const inputRounds = document.querySelector("#inputRounds");
 
-  playOptions.forEach((button) => button.removeAttribute("disabled"));
+  playOptions.forEach((button) => {
+    button.removeAttribute("disabled");
+    button.classList.remove("deactivated");
+  });
   scoreOptions.forEach((currentElement, currentIndex) => {
     currentElement.textContent = score[currentIndex];
   });
-  // console.log(scoreOptions);
 
   gameEndpoint = inputRounds.value;
 
@@ -82,7 +83,10 @@ function playRound(event) {
 
   if (score[0] >= gameEndpoint || score[2] >= gameEndpoint) {
     showFinalScore();
-    playOptions.forEach((button) => button.setAttribute("disabled", "true"));
+    playOptions.forEach((button) => {
+      button.setAttribute("disabled", "true");
+      button.classList.add("deactivated");
+    });
   }
 }
 

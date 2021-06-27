@@ -10,8 +10,9 @@
       <h1>ROCK PAPER SCISSORS</h1>
     </header>
     <main>
-      <div>
+      <div id="input">
         <label for="inputRounds">how many points will it take to win?</label>
+        <br />
         <input
           id="inputRounds"
           type="number"
@@ -25,9 +26,9 @@
       <div class="playOptions">
         <p>choose your weapon</p>
         <div>
-          <button id="rock" disabled></button>
-          <button id="paper" disabled></button>
-          <button id="scissors" disabled></button>
+          <button id="rock" class="deactivated" disabled></button>
+          <button id="paper" class="deactivated" disabled></button>
+          <button id="scissors" class="deactivated" disabled></button>
         </div>
       </div>
       <div id="keepTrack">
@@ -50,8 +51,11 @@
           </div>
         </div>
       </div>
-      <p id="result"></p>
-      <p id="finalScore"></p>
+      <div id="battleground"></div>
+      <div id="displayResults">
+        <p id="result"></p>
+        <p id="finalScore"></p>
+      </div>
     </main>
     <script src="rock-paper-scissors.js"></script>
   </body>
