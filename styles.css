@@ -1,12 +1,38 @@
+:root {
+  font-family: Menlo;
+}
+
 div {
   border: 2px solid black;
 }
 
-/* #rock {
-  width: 500px;
-  height: 500px;
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.playOptions button {
+  width: 125px;
+  height: 125px;
   border-radius: 50%;
-  background: url("retro-offset-rock-paper-scissors-icons.png");
-  background-size: 100% 100%;
   background-repeat: no-repeat;
-} */
+}
+
+#rock {
+  background: url("img/rock.png");
+  /* background-size: 100% 100%; */
+  background-size: cover;
+  background-position: center;
+}
+
+#paper {
+  background: url("img/paper.png");
+  background-size: 135px;
+  background-position: -5px -3px;
+}
+
+#scissors {
+  background: url("/img/scissors.png");
+  background-size: 140px;
+  background-position: center;
+}

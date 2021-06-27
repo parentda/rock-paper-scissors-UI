@@ -5,8 +5,8 @@ let roundCounter = 0;
 let gameEndpoint = 0;
 
 const startGameButton = document.querySelector("#startGame");
-const playOptions = document.querySelectorAll(".playOptions > button");
-const trackRounds = document.querySelector("#trackRounds > #roundsCount");
+const playOptions = document.querySelectorAll(".playOptions button");
+const trackRounds = document.querySelector("#trackRounds #roundsCount");
 const scoreOptions = document.querySelectorAll("#trackScore [id]");
 const result = document.querySelector("#result");
 const finalScore = document.querySelector("#finalScore");
