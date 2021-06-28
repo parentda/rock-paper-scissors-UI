@@ -1,17 +1,18 @@
 :root,
 #startGame {
   font-family: Menlo;
+  --borders: 3px solid black;
 }
 
 div {
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 header {
   display: flex;
   justify-content: center;
   font-size: 30px;
-  border-bottom: 3px solid black;
+  border-bottom: var(--borders);
 }
 
 main {
@@ -34,7 +35,7 @@ p {
   align-items: center;
   line-height: 1.5;
   grid-row: 1 / 2;
-  grid-column: 2 / 3;
+  grid-column: 1 / 4;
 }
 
 #input [id] {
@@ -59,6 +60,13 @@ p {
   filter: grayscale(75%);
 }
 
+#row2 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 4;
+  border-bottom: var(--borders);
+  border-top: var(--borders);
+}
+
 .playOptions {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
@@ -73,6 +81,11 @@ p {
   height: 125px;
   border-radius: 50%;
   background-repeat: no-repeat;
+  margin: 10px;
+}
+
+.playOptions button:not(.deactivated):hover {
+  transform: scale(1.1);
 }
 
 #keepTrack {
@@ -80,7 +93,7 @@ p {
   flex-direction: column;
   width: 125px;
   height: 300px;
-  padding: 10px;
+  padding: 20px;
   justify-content: space-evenly;
   grid-row: 3 / 4;
   grid-column: 1 / 2;
@@ -110,9 +123,81 @@ p {
 #battleground {
   grid-row: 3 / 4;
   grid-column: 2 / 3;
+
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 4fr 1fr 4fr;
+  justify-items: center;
+  align-items: center;
+  border-left: var(--borders);
+  padding: 20px;
 }
 
 #displayResults {
   grid-row: 4 / 5;
+  grid-column: 1 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border-top: var(--borders);
+}
+
+#bg-player {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  align-self: end;
+}
+
+#bg-computer {
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
+  align-self: end;
+}
+
+#bg-vs {
+  grid-row: 2 / 3;
   grid-column: 2 / 3;
+}
+
+#result {
+  grid-row: 3 / 4;
+  grid-column: 1 / 4;
+}
+
+.bg-img {
+  height: 200px;
+  width: 200px;
+  border: var(--borders);
+  border-radius: 50%;
+  margin: 20px;
+  background-repeat: no-repeat;
+}
+
+#img-player {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+#img-computer {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+}
+
+[data-icon="rock"] {
+  background: url("img/rock.png");
+  background-size: cover;
+  background-position: center;
+}
+
+[data-icon="paper"] {
+  background: url("img/paper.png");
+  background-size: 220px;
+  background-position: -5px -3px;
+}
+
+[data-icon="scissors"] {
+  background: url("img/scissors.png");
+  background-size: 220px;
+  background-position: center;
 }

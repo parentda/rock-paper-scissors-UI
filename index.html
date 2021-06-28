@@ -22,12 +22,14 @@
         />
         <button id="startGame">start game</button>
       </div>
-      <div class="playOptions">
-        <p>choose your weapon</p>
-        <div>
-          <button id="rock" class="deactivated" disabled></button>
-          <button id="paper" class="deactivated" disabled></button>
-          <button id="scissors" class="deactivated" disabled></button>
+      <div id="row2">
+        <div class="playOptions">
+          <p>choose your weapon</p>
+          <div>
+            <button id="rock" class="deactivated" disabled></button>
+            <button id="paper" class="deactivated" disabled></button>
+            <button id="scissors" class="deactivated" disabled></button>
+          </div>
         </div>
       </div>
       <div id="keepTrack">
@@ -51,7 +53,12 @@
         </div>
       </div>
       <div id="battleground">
-        <p id="result"></p>
+        <div id="bg-player">player</div>
+        <div id="bg-computer">computer</div>
+        <div id="bg-vs">vs.</div>
+        <div id="img-player" class="bg-img" data-icon=""></div>
+        <div id="img-computer" class="bg-img" data-icon=""></div>
+        <p id="result" alt="computer selection"/></p>
       </div>
       <div id="displayResults">
         <p id="finalScore"></p>

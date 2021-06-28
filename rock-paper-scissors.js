@@ -8,6 +8,8 @@ const startGameButton = document.querySelector("#startGame");
 const playOptions = document.querySelectorAll(".playOptions button");
 const trackRounds = document.querySelector("#trackRounds #roundsCount");
 const scoreOptions = document.querySelectorAll("#trackScore [id]");
+const playerIcon = document.querySelector("#img-player");
+const computerIcon = document.querySelector("#img-computer");
 const result = document.querySelector("#result");
 const finalScore = document.querySelector("#finalScore");
 
@@ -34,6 +36,8 @@ function startGame() {
 
   gameEndpoint = inputRounds.value;
 
+  playerIcon.dataset.icon = "";
+  computerIcon.dataset.icon = "";
   trackRounds.textContent = roundCounter;
   startGameButton.textContent = "Restart Game";
 }
@@ -59,6 +63,8 @@ function playRound(event) {
   const computerSelection = computerPlay();
   const playerSelection = event.target.id;
   console.log(event);
+  playerIcon.dataset.icon = playerSelection;
+  computerIcon.dataset.icon = computerSelection;
 
   const indexDiff =
     gameOptions.indexOf(playerSelection) -
